@@ -1,0 +1,153 @@
+:root{
+    --main-font-family: "Roboto-Regular", Helvetica;
+    --header-font-family: "Mulish-Regular", Helvetica;
+    --color-background-body: #141414;
+    --color-background-card: hsl(217, 19%, 14%);
+    --color-feedback: hsl(213, 19%, 18%);
+    --color-p: hsl(217, 12%, 63%);
+    --color-inp: hsl(216, 12%, 54%);
+    --color-btn: hsl(25, 97%, 53%);
+}
+
+html,
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    min-height: 100%;
+    background-color: var(--color-background-body);
+    color: #fff;
+}
+.container{
+    min-height: 100%;
+}
+.row{
+    margin-right: 15px;
+    margin-left: 15px;
+}
+.row:nth-child(1){
+    min-height: 100%;
+}
+.menu{
+    width: 5%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.alignMenu{
+    padding-top: 80px;
+}
+.card-group{
+    display: flex;
+    flex-direction: row;
+    flex-flow: row;
+}
+.card{
+    border: 0 !important;
+    background-color: transparent;
+    min-width: 350px;
+}
+.card-img-overlay{
+    padding: 5.25rem;
+}
+.filme{
+    width: 300px;
+    height: 250px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    flex-shrink: 0;
+    text-align: center;
+}
+.titulo{
+    display: flex;
+    justify-content: center;
+}
+h4{
+    width: 90%;
+    font-size: 1.3rem;
+}
+.poster{
+    vertical-align: middle;
+    border-style: none;
+    height: 150px;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 18px;
+}
+.nota{
+    margin: 0px;
+    margin-top: -45px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    background-color: #9c8080;
+    border-radius: 92px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+.alignHeader{
+    width: 35%;
+    height: -webkit-fill-available;
+    padding: 100px 80px;
+}
+.title{
+    font-size: 40px;
+}
+.subtitle{
+    font-size: 20px;
+}
+
+.horizontal-scrollable > .row { 
+    overflow-x: auto; 
+    white-space: nowrap; 
+} 
+  
+.horizontal-scrollable > .row > .col-xs-4 { 
+    display: inline-block; 
+    float: none; 
+} 
+
+.scroll{
+    overflow-x: scroll;
+    overflow-y: hidden;
+    gap: 20px;
+}
+.scroll::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+.teste{
+    position: fixed;
+}
+.direita{
+    right: 100px;
+}
+.esquerda{
+    left: 100px;
+}
+
+
+
+
+
+.attribution{
+    position: fixed;
+    inset: auto 0 0 0;
+    font-size: 11px; 
+    text-align: center;
+    color: white;
+}
+.attribution a{ 
+    color: hsl(228, 45%, 44%); 
+}
