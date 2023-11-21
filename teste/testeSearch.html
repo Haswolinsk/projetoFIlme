@@ -98,7 +98,7 @@
             // Limpa os resultados anteriores
             movieResults.innerHTML = '';
 
-            const moviesOnly = searchResults.filter(movie => movie.media_type === 'movie');
+            const moviesOnly = searchResults;
             console.log(moviesOnly);
             console.log(searchResults);
             moviesOnly.forEach(movie => {
@@ -113,7 +113,7 @@
 
               const moviePoster = document.createElement('img');
               moviePoster.classList.add('movie-poster');
-              moviePoster.src = `https://image.tmdb.org/t/p/w200${movie.poster_path}`;
+              moviePoster.src = `https://image.tmdb.org/t/p/original${movie.backdrop_path}`;
               moviePoster.alt = `${movie.title} Poster`;
 
               movieCard.dataset.id = movieId;
