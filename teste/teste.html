@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Top 10 Filmes - TMDb</title>
+  <style>
+    /* Estilos simples para a página */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f4;
+      text-align: center;
+    }
+    #moviesContainer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .movie-card {
+      max-width: 200px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      padding: 10px;
+      flex-shrink: 0;
+    }
+    .movie-poster {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+    .movie-title {
+      font-size: 14px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div id="moviesContainer">
+    <!-- Os 10 melhores filmes serão exibidos aqui -->
+  </div>
+
+  <script>
+    const apiKey = '22525f2f85e4c6db678c4d1f7a1e5d8a';
+    const baseUrl = 'https://api.themoviedb.org/3';
+    const topRatedMoviesUrl = `${baseUrl}/movie/top_rated?api_key=${apiKey}&language=pt-BR&page=1`;
+
+    fetch(topRatedMoviesUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Erro ao buscar filmes mais bem avaliados');
+        }
+        return response.json();
+      })
+      .then(data => {
+        const topRatedMovies = data.results.slice(0, 10); // Pegando os 10 melhores filmes
+
+        const moviesContainer = document.getElementById('moviesContainer');
+
+        topRatedMovies.forEach(movie => {
+          const movieCard = document.createElement('div');
+          movieCard.classList.add('movie-card');
+
+          const movieId = movie.id;
+
+          const movieTitle = document.createElement('h3');
+          movieTitle.classList.add('movie-title');
+          movieTitle.textContent = movie.title;
+
+          const moviePoster = document.createElement('img');
+          moviePoster.classList.add('movie-poster');
+          moviePoster.src = `https://image.tmdb.org/t/p/w200${movie.poster_path}`;
+          moviePoster.alt = `${movie.title} Poster`;
+
+          movieCard.appendChild(moviePoster);
+          movieCard.appendChild(movieTitle);
+
+          moviesContainer.appendChild(movieCard);
+        });
+      })
+      .catch(error => {
+        console.error('Erro:', error);
+      });
+  </script>
+</body>
+</html>

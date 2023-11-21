@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Melhor Filme da Atualidade - TMDb</title>
+  <style>
+    /* Estilos simples para a página */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f4;
+      text-align: center;
+    }
+    #movieDetails {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: left;
+    }
+    #movieDetails img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="movieDetails">
+    <h2>Melhor Filme da Atualidade</h2>
+    <div id="movieInfo">
+      <!-- As informações do filme serão exibidas aqui -->
+    </div>
+  </div>
+
+  <script>
+    const apiKey = '22525f2f85e4c6db678c4d1f7a1e5d8a';
+    const baseUrl = 'https://api.themoviedb.org/3';
+    const popularMoviesUrl = `${baseUrl}/movie/popular?api_key=${apiKey}&language=pt-BR&page=1`;
+
+    fetch(popularMoviesUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Erro ao buscar filmes populares');
+        }
+        return response.json();
+      })
+      .then(data => {
+        const bestMovie = data.results[0]; // O primeiro filme da lista pode ser considerado o mais popular
+
+        const movieDetails = document.getElementById('movieInfo');
+
+        const movieTitle = document.createElement('h3');
+        movieTitle.textContent = bestMovie.title;
+
+        const movieOverview = document.createElement('p');
+        movieOverview.textContent = bestMovie.overview;
+
+        const moviePoster = document.createElement('img');
+        moviePoster.src = `https://image.tmdb.org/t/p/w500${bestMovie.poster_path}`;
+        moviePoster.alt = `${bestMovie.title} Poster`;
+
+        movieDetails.appendChild(movieTitle);
+        movieDetails.appendChild(movieOverview);
+        movieDetails.appendChild(moviePoster);
+      })
+      .catch(error => {
+        console.error('Erro:', error);
+      });
+  </script>
+</body>
+</html>
