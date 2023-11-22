@@ -63,7 +63,7 @@
 
   <script>
     const apiKey = '22525f2f85e4c6db678c4d1f7a1e5d8a';
-    const listId = '8280503'; // Substitua pelo ID da lista desejada
+    const listId = '8280503'; 
     const listMoviesUrl = `https://api.themoviedb.org/3/list/${listId}?api_key=${apiKey}`;
 
     fetch(listMoviesUrl)
@@ -74,9 +74,8 @@
         return response.json();
       })
       .then(data => {
-        const movies = data.items // Exemplo: obtendo apenas os títulos dos filmes
-        console.log('Filmes da lista:', movies);
-        // Aqui você pode trabalhar com a lista de filmes retornados pela API
+        const movies = data.items 
+        
       })
       .catch(error => {
         console.error('Erro:', error);

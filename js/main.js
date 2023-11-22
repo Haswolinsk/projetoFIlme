@@ -11,15 +11,14 @@ fetch(popularMoviesUrl)
     })
     .then(data => {
         if (data.results[0]){
-            const bestMovie = data.results[0]; // O primeiro filme da lista pode ser considerado o mais popular
+            const bestMovie = data.results[0];
             console.log('dentro do if');
             console.log(bestMovie);
     
             const bestBanner = document.getElementById('bestBanner');
             const bestTitle = document.getElementById('bestTitle');
             const bestOverview = document.getElementById('bestOverview');
-    
-            // bestBanner.src = './img/imgTeste.png';
+
             bestBanner.src = `https://image.tmdb.org/t/p/original${bestMovie.backdrop_path}`;
             bestBanner.alt = `${bestMovie.title} Poster`;
 
@@ -48,7 +47,6 @@ fetch(popularMoviesUrl)
 
             const moviePoster = document.createElement('img');
             moviePoster.classList.add('poster');
-            // moviePoster.src = './img/imgTeste.png';
             moviePoster.src = `https://image.tmdb.org/t/p/original${movie.backdrop_path}`;
             moviePoster.alt = `${movie.title} Poster`;
             
