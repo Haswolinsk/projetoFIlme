@@ -108,6 +108,8 @@ body{
     margin-top: 10px;
     flex-shrink: 0;
     text-align: center;
+}.filme:hover{
+    cursor: pointer;
 }
 .titulo{
     display: flex;
