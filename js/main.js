@@ -113,6 +113,8 @@ function searchMovies() {
             
             const moviesContainer = document.getElementById('buscarFilme');
             moviesContainer.innerHTML = '';
+            moviesContainer.innerHTML += '<button value="right" onclick="scrolarSearch(this)" class="botaoScroll" style="right: 0;">></button>';
+            moviesContainer.innerHTML += '<button value="left" onclick="scrolarSearch(this)" class="botaoScroll" style="left: 0;"><</a>'
 
             popularMovies.forEach(movie => {
                 const movieCard = document.createElement('div');
@@ -145,8 +147,6 @@ function searchMovies() {
                     window.location.href = url;
                 });
 
-                moviesContainer.innerHTML += '<button value="right" onclick="scrolarSearch(this)" class="botaoScroll" style="right: 0;">></button>';
-                moviesContainer.innerHTML += '<button value="left" onclick="scrolarSearch(this)" class="botaoScroll" style="left: 0;"><</a>'
                 moviesContainer.appendChild(movieCard);
             });
         })
