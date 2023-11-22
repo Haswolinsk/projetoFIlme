@@ -19,8 +19,8 @@ fetch(popularMoviesUrl)
             const bestTitle = document.getElementById('bestTitle');
             const bestOverview = document.getElementById('bestOverview');
     
-            bestBanner.src = './img/imgTeste.png';
-            // bestBanner.src = `https://image.tmdb.org/t/p/original${movie.backdrop_path}`;
+            // bestBanner.src = './img/imgTeste.png';
+            bestBanner.src = `https://image.tmdb.org/t/p/original${bestMovie.backdrop_path}`;
             bestBanner.alt = `${bestMovie.title} Poster`;
 
             bestTitle.textContent = bestMovie.title;
@@ -48,8 +48,8 @@ fetch(popularMoviesUrl)
 
             const moviePoster = document.createElement('img');
             moviePoster.classList.add('poster');
-            moviePoster.src = './img/imgTeste.png';
-            // moviePoster.src = `https://image.tmdb.org/t/p/original${movie.backdrop_path}`;
+            // moviePoster.src = './img/imgTeste.png';
+            moviePoster.src = `https://image.tmdb.org/t/p/original${movie.backdrop_path}`;
             moviePoster.alt = `${movie.title} Poster`;
             
             movieCard.dataset.id = movieId;
