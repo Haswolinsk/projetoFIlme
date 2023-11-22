@@ -12,8 +12,6 @@ fetch(popularMoviesUrl)
     .then(data => {
         if (data.results[0]) {
             const bestMovie = data.results[0];
-            console.log('dentro do if');
-            console.log(bestMovie);
 
             const bestBanner = document.getElementById('bestBanner');
             const bestTitle = document.getElementById('bestTitle');
@@ -26,7 +24,6 @@ fetch(popularMoviesUrl)
             bestOverview.textContent = bestMovie.overview;
         }
 
-        console.log(data);
         const popularMovies = data.results.slice(0, 10);
 
         const moviesContainer = document.getElementById('cardFilme');
@@ -71,39 +68,19 @@ fetch(popularMoviesUrl)
 
 
     function scrolar(direcao) {
-        console.log(direcao);
         var scrollar = document.getElementById('cardFilme');
-        console.log(direcao.value);
         if(direcao.value == 'right'){
-            console.log('direita');
             scrollar.scrollBy({
                 left: 200, 
                 behavior: 'smooth'
             });
         }else{
-            console.log('esquerda');
             scrollar.scrollBy({
                 left: -200, 
                 behavior: 'smooth'
             });
         }
     }
-// function scrollRight() {
-//     var cardFilme = document.getElementById('cardFilme');
-//     console.log('ali');
-//     cardFilme.scrollBy({
-//         left: 200, 
-//         behavior: 'smooth'
-//     });
-// }
-// function scroll () {
-//     var cardFilme = document.getElementById('cardFilme');
-//     console.log('aq');
-//     cardFilme.scrollBy({
-//     left: -200, 
-//     behavior: 'smooth'
-//     });
-// }
 
 function searchMovies() {
     const apiKey = '22525f2f85e4c6db678c4d1f7a1e5d8a';
@@ -118,7 +95,6 @@ function searchMovies() {
             return response.json();
         })
         .then(data => {
-            console.log(data);
             const popularMovies = data.results.slice(0, 15);
             
             const moviesContainer = document.getElementById('buscarFilme');
