@@ -48,7 +48,8 @@
       </div>
       <hr style="border: 1px white solid;width: 100%;">
       <div class="row">
-        <div id="minhaLista">
+        <h1>Minha Lista</h1>
+        <div id="minhaLista" class="minhaLista">
 
         </div>
       </div>
@@ -76,6 +77,42 @@
       .then(data => {
         const movies = data.items 
         
+        const lista = document.getElementById('minhaLista');
+        console.log(movies);
+        movies.forEach(movie => {
+          console.log();
+            const movieCard = document.createElement('div');
+            movieCard.classList.add('filme');
+
+            const movieId = movie.id;
+
+            const tituloFilme = document.createElement('div');
+            tituloFilme.classList.add('titulo');
+            const titulo = document.createElement('h4');
+            titulo.textContent = movie.title;
+            const nota = document.createElement('p');
+            nota.classList.add('nota');
+            nota.textContent = movie.vote_average.toFixed(1);
+
+            const moviePoster = document.createElement('img');
+            moviePoster.classList.add('poster');
+            moviePoster.src = `https://image.tmdb.org/t/p/original${movie.backdrop_path}`;
+            moviePoster.alt = `${movie.title} Poster`;
+            
+            movieCard.dataset.id = movieId;
+
+            movieCard.appendChild(moviePoster);
+            movieCard.appendChild(tituloFilme);
+            tituloFilme.appendChild(titulo);
+            tituloFilme.appendChild(nota);
+
+            movieCard.addEventListener('click', () => {
+                var url = `./telas/sinopse.html?idFilme=${encodeURIComponent(movieId)}`;
+                window.location.href = url;
+            });
+
+            lista.appendChild(movieCard);
+        });
       })
       .catch(error => {
         console.error('Erro:', error);

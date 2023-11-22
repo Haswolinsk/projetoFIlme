@@ -197,6 +197,15 @@ a.icone{
     justify-content: center;
     align-items: center;
 }
+.minhaLista{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
+}
 
 
 
