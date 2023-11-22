@@ -117,6 +117,16 @@ h4{
     width: 90%;
     font-size: 1.3rem;
 }
+.botaoScroll{
+    color: white;
+    position: absolute;
+    padding: 10px;
+    height: -webkit-fill-available;
+    background-color: transparent;
+    font-size: 32px;
+    border: none;
+    cursor: pointer;
+}
 .poster{
     vertical-align: middle;
     border-style: none;
@@ -135,6 +145,13 @@ h4{
     border-radius: 92px;
     justify-content: center;
     align-items: center;
+}
+.search{
+    display: flex;
+    flex-direction: column;
+}
+.inputSearch{
+    display: flex;
 }
 
 

@@ -39,22 +39,22 @@
         </div>
         <div class="row">
           <h2>Top 10 Filmes mais populares</h2>
-          <div id="cardFilme" class="card-group scroll"></div>
+          <div id="cardFilme" class="card-group scroll">
+            <button value="right" onclick="scrolar(this)" class="botaoScroll" style="right: 0;">></button>
+            <button value="left" onclick="scrolar(this)" class="botaoScroll" style="left: 0;"><</a>
+          </div>
         </div>
       </div>
       <div class="col-10">
-        <div class="card text-white">
-          <img id="bestBanner" class="card-img">
-          <div class="card-img-overlay">
-            <div class="viewFilm">
-              <h1 id="bestTitle" class="card-title"></h1>
-              <p id="bestOverview" class="card-text"></p>
+        <div class="row" style="min-height: 200px;">
+          <div class="search">
+            <h1>Buscar Filmes</h1>
+            <div class="inputSearch">
+              <input type="text" id="searchInput" placeholder="Digite o nome do filme">
+              <button onclick="searchMovies()" class="btn btn-dark">Buscar</button>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <h2>Buscar Filme</h2>
-          <div id="cardFilme" class="card-group scroll">Em produção</div>
+          <div id="buscarFilme" class="card-group scroll"></div>
         </div>
       </div>
     </div>
