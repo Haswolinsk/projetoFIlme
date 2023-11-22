@@ -72,8 +72,7 @@
 
     <script>
         const url = new URLSearchParams(window.location.search);
-        const id = url.get('idFilme')
-        console.log(id);
+        const id = url.get('idFilme');
 
         const apiKey = '22525f2f85e4c6db678c4d1f7a1e5d8a';
         const baseUrl = 'https://api.themoviedb.org/3';
@@ -90,7 +89,6 @@
             })
             .then(data => {
                 const filme = data;
-                console.log(filme);
 
                 const filmeTitulo = document.getElementById('titulo');
                 filmeTitulo.textContent = filme.title;
