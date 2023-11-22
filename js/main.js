@@ -81,6 +81,20 @@ fetch(popularMoviesUrl)
             });
         }
     }
+    function scrolarSearch(direcao) {
+        var scrollar = document.getElementById('buscarFilme');
+        if(direcao.value == 'right'){
+            scrollar.scrollBy({
+                left: 200, 
+                behavior: 'smooth'
+            });
+        }else{
+            scrollar.scrollBy({
+                left: -200, 
+                behavior: 'smooth'
+            });
+        }
+    }
 
 function searchMovies() {
     const apiKey = '22525f2f85e4c6db678c4d1f7a1e5d8a';
@@ -131,6 +145,8 @@ function searchMovies() {
                     window.location.href = url;
                 });
 
+                moviesContainer.innerHTML += '<button value="right" onclick="scrolarSearch(this)" class="botaoScroll" style="right: 0;">></button>';
+                moviesContainer.innerHTML += '<button value="left" onclick="scrolarSearch(this)" class="botaoScroll" style="left: 0;"><</a>'
                 moviesContainer.appendChild(movieCard);
             });
         })
@@ -138,9 +154,3 @@ function searchMovies() {
             console.error('Erro:', error);
         });
 }
-
-
-
-
-
-
